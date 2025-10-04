@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kunal's Services — Order & Dashboard</title>
+</head>
+<body>
+  <div class="overlay">
+    <div class="container">
+      <header class="card">
+        <h1>Kunal's PPT, Resume, Excel & YouTube Services</h1>
+        <p class="small">PPT: ₹12/slide | Resume: ₹25/page | Excel: ₹15/page | YouTube: ₹2000 (10 min) | Clip: ₹500</p>
+      </header>
+
+      <section class="card">
+        <h2>Place Your Order</h2>
+        <form id="orderForm">
+          <label>Full Name *</label>
+          <input id="name" required>
+
+          <label>Email *</label>
+          <input id="email" type="email" required>
+
+          <label>Phone Number *</label>
+          <input id="phone" required>
+
+          <label>Service Type *</label>
+          <select id="service" required>
+            <option value="PPT">PPT</option>
+            <option value="Resume">Resume</option>
+            <option value="Excel Data Entry">Excel Data Entry</option>
+            <option value="YouTube Video Editing">YouTube Video Editing (10 min = ₹2000)</option>
+            <option value="YouTube Clip">YouTube Clip (₹500 per clip)</option>
+          </select>
+
+          <label id="pagesLabel">Number of Pages / Slides / Clips *</label>
+          <input id="pages" type="number" value="0" min="0" required>
+
+          <label>Template Design Preference</label>
+          <select id="design">
+            <option>Minimal</option>
+            <option>Modern</option>
+            <option>Creative</option>
+          </select>
+
+          <label>Notes</label>
+          <textarea id="notes" placeholder="Any additional requirements or preferences..."></textarea>
+
+          <label>Deadline *</label>
+          <input id="deadline" type="date" required>
+
+          <p class="price-display"><strong>Total Price:</strong> ₹<span id="totalPrice">0</span></p>
+
+          <button id="submitBtn" type="submit">Submit Order</button>
+        </form>
+
+        <div id="paymentSection" class="payment-section" style="display:none">
+          <h3>Complete Your Payment</h3>
+          <img src="https://image2url.com/images/1758892919551-11b95ead-5608-40b5-bc6a-79b6868da31c.jpg" alt="QR Code">
+          <p class="upi-info"><strong>UPI ID:</strong> <span id="upiId">9837862863@ybl</span></p>
+          <button type="button" class="secondary" id="copyBtn">Copy UPI ID</button>
+          <p class="amount-info"><strong>Total Amount:</strong> ₹<span id="paymentAmount">0</span></p>
+        </div>
+
+        <div id="thankYou" class="thank-you" style="display:none">
+          <h3>Thank You!</h3>
+          <p>Your order has been submitted successfully. Please complete the payment and we'll get started on your project.</p>
+        </div>
+      </section>
+
+      <aside>
+        <div class="card">
+          <h3>Order Dashboard</h3>
+          <button type="button" id="refreshBtn" class="secondary">Refresh</button>
+          <div id="ordersContainer">
+            <table id="ordersTable">
+              <thead>
+                <tr>
+                  <th>Order ID</th>
+                  <th>Name</th>
+                  <th>Service</th>
+                  <th>Amount</th>
+                  <th>Status</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+              <tbody id="ordersBody">
+                <tr>
+                  <td colspan="6" class="loading">Loading orders...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+  <script type="module" src="/main.js"></script>
+</body>
+</html>
