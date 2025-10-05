@@ -126,7 +126,7 @@ async function loadOrders() {
           <td>${order.id}</td>
           <td>${order.name}</td>
           <td>${order.service}</td>
-          <td>₹${order.amount}</td>
+          <td>$${order.amount}</td>
           <td class="${statusClass}">${order.status}</td>
           <td>${date}</td>
         </tr>
